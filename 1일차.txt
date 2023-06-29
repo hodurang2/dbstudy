@@ -1,0 +1,33 @@
+git init : local repository 만들때쓰는 명령어
+ls : 지금디렉토리에 무슨파일이있는지
+clear : bash에 있는것들을 지워줌
+
+git status : 지금 bash에 상태확인
+
+git config (--global) user.name : git 관리할 이름 적는 명령어
+git config (--global) user.email : git 관리할 이메일 적는명령어
+
+git add : bash에 스태이징 add를 안하면추적불가능 add한순간부터 추적가능한상태로 바꿈
+git add .: 현재레포지토리에 모든파일 add
+git rm --cached <파일이름> : add되어있는 파일 제거
+git commit : bash를 메모장으로 변환
+그후 a : insert 모드로 변환
+말고 git commit -m 'my 몇번째 commit'하면 바로 됨
+
+git log : git commit commit 로그보는 명령어
+git log --oneline : commit 로그를 간편하게 보는 명령어
+
+touch 파일이름.txt : loacl repository에 파일만들기
+echo '내용' >> '파일.txt' : '파일'에 '내용 입력'
+
+git reset HEAD <파일이름> : 
+git reset --hard 
+
+cat <파일이름> : 파일안에있는 내용을 확인가능
+
+git remote add origin <레포지토리> : 로컬레포지토리 - 원격레포지토리등록
+
+git push origin main : 로컬 -> 원격으로 올리기
+git pull origin main : 원격 -> 로컬으로 내리기
+
+git remote add origin https://github.com/hodurang2/dbsturdy.git
