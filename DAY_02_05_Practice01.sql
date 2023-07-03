@@ -1,0 +1,51 @@
+/*
+    게시판 : 게시글 저장
+    회원 : 회원들 저장
+    공감 : 공감 <- 로그인필요함 (회원정보필요), 공감했다 안했다 할수있음 (NULL값 가능)
+    사진 : 게시글1개에 들어가는 사진들
+*/
+-- 테이블 삭제
+DROP TABLE MEMBER_T;
+DROP TABLE POST_T;
+DROP TABLE PHOTO_T;
+DROP TABLE SYMPATY_T;
+
+-- 회원테이블생성
+CREATE TABLE MEMBER_T(
+    MEM_NO       NUMBER         NOT NULL             ,
+    MEM_ID       VARCHAR2(10)   NOT NULL UNIQUE      ,
+    BLOG_ADS     VARCHAR2(30)   NOT NULL UNIQUE      ,
+    CONSTRAINT   PK_MEM PRIMARY KEY(MEM_NO)
+);
+
+-- 게시글테이블 생성
+CREATE TABLE POST_T(
+    POST_NO      NUMBER         NOT NULL ,
+    POST_NAME    VARCHAR2(10)   NOT NULL ,
+    POST_ADS     VARCHAR2(30)   NULL     ,
+    CONSTRAINT   PK_POST PRIMARY KEY(POST_NO),
+    CONSTRAINT   FK_MEM_POST FOREIGN KEY(POST_ADS) REFERENCE MEMBER_T(MEM_NO) ON DELETE CASCADE
+);
+
+-- 사진테이블 생성
+CREATE TABLE PHOTO_T(
+    PHO_NUM     NUMBER          NOT NULL,
+    PHO_ADS     NUMBER          NOT NULL,
+    CONSTRAINT  PK_PHOTO PRIMARY KEY(PHO_NO),
+    CONSTRAINT  FK_POST_PHOTO FOREIGN KEY(PHO_ADS) REFERENCE POST_T(POST_NO) ON DELETE CASCADE
+);
+
+-- 공감테이블 생성
+CREATE TABLE SYMPATY_T(
+    SYM_NO      NUMBER          NOT NULL ,
+    
+    CONSTRAINT  PK_SYM PRIMARY KEY(SYM_NO)
+);
+
+
+
+
+
+
+
+
