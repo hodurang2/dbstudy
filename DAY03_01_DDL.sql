@@ -39,15 +39,19 @@ CREATE TABLE CUSTOMER_TBL(
     6. PK, FK 제약조건 : 
         1) PK
             (1) 추가
-                ALTER TABLE 테이블명 ADD  CONSTRAINT 제약조건명 PRIMARY KEY(COLUMN)
+                ALTER TABLE 테이블명 ADD  CONSTRAINT 제약조건명(이름) PRIMARY KEY(COLUMN)
             (2) 삭제
-                ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명 
+                ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명(이름)
                 ALTER TABLE 테이블명 DROP PRIMARY KEY
         2) FK
             (1) 추가
-                ALTER TABLE 자식테이블명 ADD CONSTRAINT 제약조건명 FOREIGN KEY(COLUMN) REFERENCES 부모테이블(참조할칼럼)
+                ALTER TABLE 자식테이블명 ADD CONSTRAINT 제약조건명(이름) FOREIGN KEY(COLUMN) REFERENCES 부모테이블(참조할칼럼)
             (2) 삭제
-                ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명
+                ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건명(이름)
+            (3) 일시중지
+                ALTER TABLE 테이블명 DISABLE CONSTRAINT 제약조건명(이름)
+            (4) 활성화
+                ALTER TABLE 테이블명 ENABLE CONSTRAINT 제약조건명(이름)
 */
 
 -- 실습.
@@ -80,8 +84,6 @@ ALTER TABLE CUSTOMER_TBL MODIFY CUST_NAME VARCHAR2(20) NULL; -- NULL 반드시 �
 -- 테이블 구조 확인
 DESCRIBE BANK_TBL;
 DESC     CUSTOMER_TBL;
-
-
 
 
 
